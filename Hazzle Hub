@@ -36,7 +36,7 @@ Section:NewSlider("Walkspeed", "Speed", 500, 16, function(s) -- 500 (MaxValue) |
 end)
 local Tab = Window:NewTab("Pet simualator x")
 local Section = Tab:NewSection("Pet simualator x")
-Section:NewButton("Milk up (PC ONLY)", "Milk ub", function()
+Section:NewButton("Milk up (PC ONLY)", "Milk up", function()
     loadstring(game:HttpGet("https://milkup.info/script/PetSimulatorX/"))()
     print("Clicked")
 end)
@@ -48,3 +48,89 @@ Section:NewButton("PsxJmes", "idk", function()
     loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/jmesfo0/RobloxScripts/main/psx-jmes.lua"))()
     print("Clicked")
 end)
+local Tab = Window:NewTab("Street Warz")
+local Section = Tab:NewSection("Street Warz")
+Section:NewButton("Zalnis's script", "AUTOFARM", function()
+    for index, object in pairs(workspace:GetDescendants()) do
+	if object.Name == "kar" and object.Parent:IsA("Folder") then
+		object.Parent.Name = "BoxJob"
+		object.Parent.Parent.Name = "Jobs"
+	end
+end
+
+--// Variables
+local Path = game:GetService("Workspace").Jobs.BoxJob.BOX1
+local ClickDetector = Path.ClickDetector
+local Destination = game:GetService("Workspace").Jobs.BoxJob.Job
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local HumanoidRootPart = Character.HumanoidRootPart
+
+getrenv().Active = true--// Change this to false if you want it to stop
+
+spawn(function() --// Main script
+	while Active and wait() do
+		for _,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.Name == "BOX" then
+				v.Parent = game.Players.LocalPlayer.Character
+			end
+		end
+		HumanoidRootPart.CFrame = Destination.CFrame		
+		fireclickdetector(ClickDetector)
+	end
+end)
+    print("Clicked")
+Section:NewButton("Terni's script", "ANTI-CHEAT BYPASS", function()
+    -- Streetz War Anti-Cheat Bypass
+
+local debounce = false
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetChildren()) do
+   if v.Name == "RbxCharacterSounds" or v.Name == "Clearall" then -- Locates each "Anti-Cheat script"
+       for i,v in pairs(getconnections(v.Changed)) do -- Gets each connection (userdata) that is utilized by the Changed event
+           v:Disable()
+       end
+       for i,v in pairs(getconnections(v.AncestryChanged)) do
+           v:Disable()
+       end
+       debounce = true -- Lets the script know its time to disable the Anti-Cheat for real
+   end
+end
+
+if debounce then
+   print("Script may now disable Anti-Cheat")
+   for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetChildren()) do
+       if v.Name == "RbxCharacterSounds" then
+           v.Disabled = true
+       end
+       if v.Name == "Clearall" then
+           v.Disabled = true
+       end
+   end
+end
+
+if game:GetService("Players").LocalPlayer.PlayerScripts.RbxCharacterSounds.Disabled then
+   print("Check Disabled (May break movement sounds)")
+end
+
+if game:GetService("Players").LocalPlayer.PlayerScripts.Clearall.Disabled then
+   print("Anti-Cheat Disabled")
+end
+    print("Clicked")
+Section:NewButton("HAZZLE'S ESP", "BY ME", function()
+    local players = game.Players:GetPlayers()
+
+for i,v in pairs(players) do
+ local esp = Instance.new("Highlight")
+ esp.Name = v.Name
+ esp.FillTransparency = 0
+ esp.FillColor = Color3.new(1, 0.666667, 0)
+ esp.OutlineColor = Color3.new(1, 0.333333, 1)
+ esp.OutlineTransparency = 0
+ esp.Parent = v.Character
+end
+    print("Clicked")
+local Tab = Window:NewTab("Credits (SCRIPT NOT FINISHED)")
+local Section = Tab:NewSection("Credits (NOT FINISHED)")
+    print("Clicked")    
